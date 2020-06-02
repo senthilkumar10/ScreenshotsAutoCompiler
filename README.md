@@ -4,4 +4,5 @@ In all Testing projects, capturing screenshots of passed/failed testing status i
 
 # Advantage
 - ScreenshotsAutoCompiler is an automation solution for creating Test Results which reduces Manual effort of taking screenshots and adding description to the word document
-- This final document can be attached to ALM
+- This tool helps to consolidate all the screenshots in a word document alongside step description which are captured via this tool
+- This final document can be attached to ALM/Jira
