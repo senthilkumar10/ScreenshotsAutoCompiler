@@ -12,7 +12,7 @@ public class WordHandling {
         File folder = new File( MainClass.location );
         File[] files = folder.listFiles();
         XWPFDocument doc = new XWPFDocument();
-        FileOutputStream out = new FileOutputStream( new File( MainClass.location + "\\" + MainClass.prefix + ".docx" ) );
+        FileOutputStream out = new FileOutputStream( new File( MainClass.location + File.separator + MainClass.prefix + ".docx" ) );
         XWPFParagraph par = doc.createParagraph();
         par.setAlignment( ParagraphAlignment.LEFT );
         XWPFRun run = par.createRun();

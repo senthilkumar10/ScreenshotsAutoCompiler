@@ -9,7 +9,7 @@ public class StepDescription {
     public static void stepDescription(Dlg parent){
         try
         {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             JFrame step = new JFrame( "Step Details" );
             step.setAlwaysOnTop(true);
             step.getContentPane().setLayout(new FlowLayout());

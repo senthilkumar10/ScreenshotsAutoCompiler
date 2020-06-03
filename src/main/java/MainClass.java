@@ -11,10 +11,10 @@ public class MainClass{
     {
         try
         {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             final JFrame f = new JFrame("ENTER ALL DETAILS BELOW");
-//          f.setAlwaysOnTop(true);
             f.setLocationRelativeTo( null );
+            f.setSize(500,400);
             f.getContentPane().setLayout(new FlowLayout());
 
             final JTextField textField1 = new JTextField("Enter the Location");
@@ -37,9 +37,9 @@ public class MainClass{
 
             String  jlistData[] =
                     {
-                            "GIF",
                             "PNG",
-                            "JPEG"
+                            "JPEG",
+                            "GIF"
                     };
             final JComboBox  jlist = new JComboBox<String>( jlistData );
             f.getContentPane().add(jlist);

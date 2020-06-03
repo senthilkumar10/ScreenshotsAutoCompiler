@@ -10,7 +10,7 @@ public abstract class PrintButton extends JFrame implements WindowListener
     {
         try
         {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             //final JFrame f = new JFrame("Print Screen App");
             Dlg f = new Dlg(new JFrame(), "PRINT");
             f.setAlwaysOnTop( true );
