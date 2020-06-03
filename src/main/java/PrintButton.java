@@ -4,33 +4,27 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 
-public abstract class PrintButton extends JFrame implements WindowListener
-{
-    static void printButton()
-    {
-        try
-        {
+public abstract class PrintButton extends JFrame implements WindowListener {
+
+    public static void printButton() {
+        try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-            //final JFrame f = new JFrame("Print Screen App");
             Dlg f = new Dlg(new JFrame(), "PRINT");
-            f.setAlwaysOnTop( true );
+            f.setAlwaysOnTop(true);
             f.getContentPane().setLayout(new FlowLayout());
             final JButton jButton = new JButton("Prtsc");
             jButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    f.setVisible( false );
+                    f.setVisible(false);
                     PrintScreen.printScreen();
                     StepDescription.stepDescription(f);
-                    //f.setVisible( true );
                 }
             });
             f.getContentPane().add(jButton);
             f.pack();
             f.setVisible(true);
-        }
-        catch (Exception evt)
-        {
+        } catch (Exception evt) {
             evt.printStackTrace();
         }
     }
@@ -47,10 +41,10 @@ class Dlg extends JDialog {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                File folder = new File( MainClass.location);
+                File folder = new File(MainClass.docLocationPath);
                 File[] files = folder.listFiles();
-                for (File file:files){
-                    if (file.getName().endsWith( ".PNG" ) || file.getName().endsWith( ".GIF" ) || file.getName().endsWith( ".JPEG" )){
+                for (File file : files) {
+                    if (file.getName().endsWith(".PNG") || file.getName().endsWith(".JPEG")) {
                         try {
                             boolean success = file.delete();
                         } catch (Exception e) {
@@ -58,7 +52,7 @@ class Dlg extends JDialog {
                         }
                     }
                 }
-                System.exit( 0 );
+                System.exit(0);
             }
         });
     }

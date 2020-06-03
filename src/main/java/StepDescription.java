@@ -6,6 +6,7 @@ import java.util.List;
 
 public class StepDescription {
     public static List<String> description = new ArrayList<>();
+
     public static void stepDescription(Dlg parent){
         try
         {
@@ -23,11 +24,9 @@ public class StepDescription {
             step.getContentPane().add( textField1 );
             final JButton jButton = new JButton("Ok");
             jButton.addActionListener(new ActionListener() {
-
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     description.add(textField1.getText()) ;
-                    //System.out.println(description);
                     step.setVisible(false);
                     parent.setVisible( true );
                 }
