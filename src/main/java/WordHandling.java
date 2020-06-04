@@ -4,13 +4,13 @@ import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
+
 
 public class WordHandling {
 
     public static void wordDoc() throws IOException {
-        File folder = new File(MainClass.docLocationPath);
-        File[] files = folder.listFiles();
+
         XWPFDocument doc = new XWPFDocument();
         FileOutputStream out = new FileOutputStream(new File(MainClass.docLocationPath + File.separator + MainClass.testcaseName + ".docx"));
         XWPFParagraph par = doc.createParagraph();
@@ -26,10 +26,15 @@ public class WordHandling {
         run.addBreak();
         run.setText("Created By : " + System.getProperty("user.name"));
         run.addBreak();
+
         System.out.println(StepDescription.description);
+
+        File[] files = getImageFileName(MainClass.docLocationPath, MainClass.imageType);
+
         int i = 0;
         for (File file : files) {
             String fileName = file.getName();
+            System.out.println("FileName :" + fileName);
             int document = -1;
             if (fileName.endsWith(MainClass.imageType)) {
                 if (fileName.endsWith(".PNG")) {
@@ -58,4 +63,13 @@ public class WordHandling {
         doc.close();
         out.close();
     }
+
+    public static File[] getImageFileName(String folderLocation, String extension) {
+        File folder = new File(folderLocation);
+        File[] files = folder.listFiles((d, name) -> name.endsWith("." + extension));
+        Arrays.sort(files);
+        return files;
+    }
+
+
 }
